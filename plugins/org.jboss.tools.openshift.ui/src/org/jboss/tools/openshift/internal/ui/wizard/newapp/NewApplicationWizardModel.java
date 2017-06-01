@@ -78,6 +78,8 @@ public class NewApplicationWizardModel
 	
 	private void update(boolean useLocalAppSource, IProject selectedProject, List<ObservableTreeItem> projectItems, 
 			IApplicationSource appSource, String localAppSourceFilename, IStatus appSourceStatus) {
+		System.out.println("Debug in NewApplicationWizardModel#update: Updating project "+selectedProject);
+		
 		updateProjectItems(projectItems);
 		firePropertyChange(PROPERTY_PROJECT, this.project, 
 				this.project = selectedProject = getProjectOrDefault(selectedProject, projectItems));
@@ -226,6 +228,7 @@ public class NewApplicationWizardModel
 
 	@Override
 	public void setProject(IProject project) {
+		System.out.println("Debug in NewApplicationWizardModel#setProject.");
 		update(this.useLocalAppSource, project, this.projectItems, this.serverAppSource, this.localAppSourceFilename, this.appSourceStatus);
 	}
 
@@ -242,6 +245,10 @@ public class NewApplicationWizardModel
 		ObservableTreeItem connectionItem = ApplicationSourceTreeItems.INSTANCE.create(connection);
 		connectionItem.load();
 		List<ObservableTreeItem> projects = connectionItem.getChildren();
+		System.out.println("Debug in NewApplicationWizardModel#loadResources");
+		for (ObservableTreeItem observableTreeItem : projects) {
+			System.out.println(observableTreeItem.getModel());
+		}
 		setProjectItems(projects);
 	}
 

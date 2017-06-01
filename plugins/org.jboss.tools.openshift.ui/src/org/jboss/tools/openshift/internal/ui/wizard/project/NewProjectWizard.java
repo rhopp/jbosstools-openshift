@@ -69,6 +69,7 @@ public class NewProjectWizard extends AbstractOpenShiftWizard<NewProjectWizardMo
 	}
 	
 	public IProject getProject() {
+		System.out.println("Debug in NewProjectWizard#getProject");
 		return newProjectWizardPage.getProject();
 	}
 }

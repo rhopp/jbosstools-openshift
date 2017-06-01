@@ -105,6 +105,8 @@ public class NewProjectWizardPage extends AbstractOpenShiftWizardPage {
 	}
 
 	public IProject getProject() {
+		System.out.println("Debug in NewProjectWizardPage#getProject");
+		System.out.println("Debug: model:" +model);
 		return model.getProject();
 	}
 	

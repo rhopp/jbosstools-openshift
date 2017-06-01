@@ -246,7 +246,11 @@ public class AbstractProjectPage<M extends IProjectPageModel<Connection>> extend
                                 closeAfter[0] = closeOnCancel;
                                 return Status.CANCEL_STATUS;
                             } else {
+                            	System.out.println("Debug: Loading resources.");
                                 model.loadResources();
+                                System.out.println("Debug: Resources loaded.");
+                                
+                                System.out.println("Debug: Setting project.");
                                 model.setProject(newProjectWizard.getProject());
                             }
                         }
